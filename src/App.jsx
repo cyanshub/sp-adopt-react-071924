@@ -1,7 +1,10 @@
+// 導入 Components
+import Banner from "./components/Banner/Banner"
+
 function App() {
   return (
     <>
-      <h1>Hello World!</h1>
+      <Banner />
     </>
   )
 }
