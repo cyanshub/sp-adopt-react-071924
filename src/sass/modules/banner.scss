@@ -1,0 +1,112 @@
+// 載入低階模組彙整器, 使用 as * 免除輸入引用低階模組的名稱
+@use "./variables" as *;
+
+/* 活動區banner區塊樣式 */
+.banner-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  grid-gap: 1.5rem;
+
+  grid-template-areas:
+    "main main main main"
+    "left left right right";
+
+  .main-banner,
+  .sub-banner {
+    padding: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-shadow: $banner-box-shadow;
+  }
+
+  .main-banner {
+    grid-area: main;
+    background-image: $main-banner-image-url;
+
+    .banner-description {
+      font-size: 1rem;
+      color: $banner-main-description-text-color;
+    }
+
+    .banner-title {
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+      color: $banner-main-title-text-color;
+      font-weight: 600;
+    }
+
+    .banner-description {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .sub-banner {
+    .banner-title {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: $banner-sub-text-color;
+      margin-bottom: 1rem;
+    }
+
+    .banner-description {
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: $banner-sub-text-color;
+      margin-bottom: 1rem;
+    }
+
+    .action {
+      font-size: 1rem;
+      padding: 0.25rem 1rem;
+    }
+
+    &.sub-banner-left {
+      grid-area: left;
+      background-image: $sub-banner-image-left-url;
+    }
+
+    &.sub-banner-right {
+      grid-area: right;
+      background-image: $sub-banner-image-right-url;
+    }
+  }
+}
+
+
+/* 電腦版活動區banner區塊樣式，導入媒體查詢768px */
+@media screen and (min-width: 768px) {
+  .banner-wrapper {
+    grid-template-areas:
+      "main main main left"
+      "main main main right";
+
+    .main-banner {
+      justify-content: center;
+      align-items: flex-start;
+
+      .banner-title {
+        font-size: 2rem;
+      }
+
+      .banner-description {
+        font-size: 1.5rem;
+      }
+    }
+
+    .sub-banner {
+      .banner-title {
+        font-size: 1.5rem;
+      }
+
+      .banner-description {
+        font-size: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,347 @@
+@charset "UTF-8";
+/* reset:start */
+html {
+  box-sizing: border-box;
+  /*設定 body 計算模式*/
+  scroll-behavior: smooth;
+  /* 設定網頁順暢滑動 */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* 清除瀏覽器預設 viewport */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+li,
+menu {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  line-height: 0.9;
+  list-style: none;
+}
+
+table {
+  border: none;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: initial;
+}
+
+/* 清除超連結預設底線 */
+a {
+  text-decoration: none;
+}
+
+/* reset:end */
+/* 顏色參數化 */
+/* color */
+/* photo */
+/* 活動區banner區塊樣式 */
+.banner-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  grid-gap: 1.5rem;
+  grid-template-areas: "main main main main" "left left right right";
+}
+.banner-wrapper .main-banner,
+.banner-wrapper .sub-banner {
+  padding: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+}
+.banner-wrapper .main-banner {
+  grid-area: main;
+  background-image: url("/images/banner/banner-photo-1.avif");
+}
+.banner-wrapper .main-banner .banner-description {
+  font-size: 1rem;
+  color: #267b98;
+}
+.banner-wrapper .main-banner .banner-title {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: #1a5366;
+  font-weight: 600;
+}
+.banner-wrapper .main-banner .banner-description {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.banner-wrapper .sub-banner .banner-title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.banner-wrapper .sub-banner .banner-description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.banner-wrapper .sub-banner .action {
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+}
+.banner-wrapper .sub-banner.sub-banner-left {
+  grid-area: left;
+  background-image: url("/images/banner/banner-photo-2.avif");
+}
+.banner-wrapper .sub-banner.sub-banner-right {
+  grid-area: right;
+  background-image: url("/images/banner/banner-photo-3.avif");
+}
+
+/* 電腦版活動區banner區塊樣式，導入媒體查詢768px */
+@media screen and (min-width: 768px) {
+  .banner-wrapper {
+    grid-template-areas: "main main main left" "main main main right";
+  }
+  .banner-wrapper .main-banner {
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .banner-wrapper .main-banner .banner-title {
+    font-size: 2rem;
+  }
+  .banner-wrapper .main-banner .banner-description {
+    font-size: 1.5rem;
+  }
+  .banner-wrapper .sub-banner .banner-title {
+    font-size: 1.5rem;
+  }
+  .banner-wrapper .sub-banner .banner-description {
+    font-size: 1rem;
+  }
+}
+/* 相片集 album 區塊樣式 */
+.album-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* 將圖片超出容器的部分隱藏 */
+  overflow: hidden;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  /* 定位樣式 */
+  position: relative;
+  /* 設定圖卡圖片轉場效果 */
+  background-color: #a9a9a9;
+  /* 設定邊框轉場特效 */
+}
+.card .card-img {
+  width: 100%;
+  height: 300px;
+  display: block;
+  /* 避免圖片因為調整長寬而變形 */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* 設定圖卡圖片轉場效果 */
+  transition: opacity 0.3s ease-out;
+}
+.card .card-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 以自身尺寸作為移動距離 */
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  text-align: center;
+  /* 設定圖卡游標懸移文字效果 */
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  /* 設定圖卡文案樣式 */
+}
+.card .card-text .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+.card .card-text .card-description {
+  font-size: 1.2rem;
+}
+.card:hover {
+  /* 設定圖卡游標懸移文字效果 */
+  /* 設定圖卡圖片轉場效果 */
+}
+.card:hover .card-text {
+  opacity: 1;
+}
+.card:hover .card-img {
+  opacity: 0.4;
+}
+.card::before, .card::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  transition: transform 0.4s ease-out;
+}
+.card::before {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  transform: scale(0, 1);
+}
+.card:hover::before {
+  transform: scale(1.05, 1);
+}
+.card::after {
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  transform: scale(1, 0);
+}
+.card:hover::after {
+  transform: scale(1, 1.05);
+}
+
+/* 領養資訊 adoption 區塊樣式 */
+.adoption-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 135px;
+  background-color: #ffffff;
+  box-shadow: 2px 10px 12px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 2px 10px 12px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 10px 12px 0px rgba(0, 0, 0, 0.1);
+}
+.adoption-wrapper .adoption-image {
+  width: 100%;
+}
+.adoption-wrapper .adoption-info {
+  padding: 1.2rem;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  /* 設定文案樣式 */
+}
+.adoption-wrapper .adoption-info .adoption-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  color: #267c99;
+}
+.adoption-wrapper .adoption-info .adoption-description {
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+  color: #5e5c5c;
+}
+
+/* 領養資訊adoption區塊樣式，導入媒體查詢768px */
+@media screen and (min-width: 768px) {
+  .adoption-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+  }
+  .adoption-wrapper .adoption-info {
+    justify-items: start;
+    /* 設定文案樣式 */
+  }
+  .adoption-wrapper .adoption-info .adoption-title {
+    font-size: 3rem;
+  }
+  .adoption-wrapper .adoption-info .adoption-description {
+    font-size: 1.875rem;
+  }
+}
+/* 網站頁腳footer區塊樣式 */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  color: #fff;
+  background-color: #4a4a4a;
+}
+footer span {
+  text-align: center;
+  padding: 0.5rem;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* 設定網頁主體: start */
+html,
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  background-color: #f6f7f8;
+}
+
+/* 設定專案樣式: start */
+.container {
+  width: 95%;
+  margin: 0 auto 3rem auto;
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 2160px;
+  }
+}
+.background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.action {
+  color: white;
+  background-color: #39bae6;
+  border-radius: 0.25rem;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  transition: all 0.1s linear;
+}
+
+.action:hover {
+  background-color: #267c99;
+  box-shadow: 0 1px 5px 0 rgb(87, 87, 87);
+}
+
+@media screen and (min-width: 768px) {
+  .action {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+}/*# sourceMappingURL=style.css.map */
