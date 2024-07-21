@@ -78,7 +78,7 @@ a {
 }
 .banner-wrapper .main-banner {
   grid-area: main;
-  background-image: url("/images/banner/banner-photo-1.avif");
+  background-image: url("/sp-adopt-react-071924/images/banner/banner-photo-1.avif");
 }
 .banner-wrapper .main-banner .banner-description {
   font-size: 1rem;
@@ -114,11 +114,11 @@ a {
 }
 .banner-wrapper .sub-banner.sub-banner-left {
   grid-area: left;
-  background-image: url("/images/banner/banner-photo-2.avif");
+  background-image: url("/sp-adopt-react-071924/images/banner/banner-photo-2.avif");
 }
 .banner-wrapper .sub-banner.sub-banner-right {
   grid-area: right;
-  background-image: url("/images/banner/banner-photo-3.avif");
+  background-image: url("/sp-adopt-react-071924/images/banner/banner-photo-3.avif");
 }
 
 /* 電腦版活動區banner區塊樣式，導入媒體查詢768px */

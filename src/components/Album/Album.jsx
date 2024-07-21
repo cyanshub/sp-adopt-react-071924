@@ -8,6 +8,10 @@
 // 8. 使用陣列方法時, this 是 JavaScript 保留字, 要避免使用
 // 9. 因應 React, 使用陣列時, 陣列中的每個物件, 至少在最外層容器要加上 key 屬性 
 // 10. 使用變數的方式要改成單花括, 若遇到字串要避免引號在單花括外面
+// 11. 注意靜態檔案資源的載入位置已改成自己指定, 元素引用時要注意
+
+// 載入環境變數
+const publicURL = import.meta.env.VITE_PUBLIC_URL
 
 // 載入資料
 import { pets } from '../../../data.json'
@@ -23,7 +27,7 @@ export default function Album() {
               return (
                 <div className="card" key={pets.id}>
                   <img
-                    src={"/" + item.image}
+                    src={publicURL + "/" + item.image}
                     alt={item.name} className="card-img" />
                   <div className="card-text">
                     <h3 className="card-title">{ item.name }</h3>
