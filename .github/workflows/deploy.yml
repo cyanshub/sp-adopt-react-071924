@@ -11,18 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -31,7 +27,7 @@ jobs:
         run: |
           git config --global user.name $user_name
           git config --global user.email $user_email
-          git remote set-url origin <https://${github_token}@github.com/${repository}>
+          git remote set-url origin https://${{secrets.DEPLOY_SECRET }}@github.com/${{github.repository}}
           npm run deploy
         env:
           user_name: 'github-actions[bot]'
