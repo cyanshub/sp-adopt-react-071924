@@ -33,6 +33,7 @@ $action-hover-background-color: #267c99;
 $action-box-shadow: 0 1px 5px 0 rgba(87, 87, 87, 1);
 
 /* photo */
-$main-banner-image-url: url("images/banner/banner-photo-1.avif");
-$sub-banner-image-left-url: url("images/banner/banner-photo-2.avif");
-$sub-banner-image-right-url: url("images/banner/banner-photo-3.avif");
+$publicURL: '/public';
+$main-banner-image-url: url("#{$publicURL}/images/banner/banner-photo-1.avif");
+$sub-banner-image-left-url: url("#{$publicURL}/images/banner/banner-photo-2.avif");
+$sub-banner-image-right-url: url("#{$publicURL}/images/banner/banner-photo-3.avif");

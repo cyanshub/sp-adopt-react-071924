@@ -1,5 +1,11 @@
+import { Banner } from "../components/AdoptPage"
+
 const AdoptPage = () => {
-  return (<div>Hello World</div>)
+  return (
+    <>
+      <Banner />
+    </>
+  )
 }
 
 export default AdoptPage
