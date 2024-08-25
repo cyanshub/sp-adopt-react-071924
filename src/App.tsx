@@ -6,6 +6,9 @@ import AdoptPage from './pages/AdoptPage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 
+// 引入sass樣式架構
+import './sass/style.scss'
+
 // 定義專案基礎路徑
 const basename = import.meta.env.VITE_PUBLIC_URL
 

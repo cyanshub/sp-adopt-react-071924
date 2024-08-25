@@ -1,0 +1,64 @@
+// 載入低階模組彙整器, 使用 as * 免除輸入引用低階模組的名稱
+@use "./variables" as *;
+
+/* 領養資訊 adoption 區塊樣式 */
+.adoption-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 135px;
+  background-color: $adoption-background-color;
+  box-shadow: $adoption-box-shadow;
+  -webkit-box-shadow: $adoption-box-shadow;
+  -moz-box-shadow: $adoption-box-shadow;
+
+  .adoption-image {
+    width: 100%;
+  }
+
+  .adoption-info {
+    padding: 1.2rem;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+
+    /* 設定文案樣式 */
+    .adoption-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.4rem;
+      color: $adoption-title-text-color;
+    }
+
+    .adoption-description {
+      font-size: 1rem;
+      margin-bottom: 0.9rem;
+      color: $adoption-description-text-color;
+    }
+
+  }
+}
+
+
+/* 領養資訊adoption區塊樣式，導入媒體查詢768px */
+@media screen and (min-width:768px) {
+  .adoption-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+
+
+    .adoption-info {
+      justify-items: start;
+
+      /* 設定文案樣式 */
+      .adoption-title {
+        font-size: 3rem;
+      }
+
+      .adoption-description {
+        font-size: 1.875rem;
+      }
+    }
+  }
+}
